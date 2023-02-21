@@ -1,5 +1,6 @@
 package com.amazon.step_definitions;
 
+import com.amazon.pages.AmazonMain;
 import com.amazon.utilities.ConfigurationReader;
 import com.amazon.utilities.Driver;
 import io.cucumber.java.en.Given;
@@ -10,23 +11,23 @@ import org.openqa.selenium.Keys;
 import org.testng.Assert;
 
 public class AmazonSearch {
+    AmazonMain pages = new AmazonMain();
 
     @Given("user is on the search page")
-    public void userIsOnTheSearchPage() {
+    public void user_is_on_the_search_page() {
         Driver.getDriver().get(ConfigurationReader.keyValue("url"));
     }
 
-    @When("user write anything into the search box")
-    public void userWriteAnythingIntoTheSearchBox() {
-
-        Driver.getDriver().findElement(By.id("twotabsearchtextbox")).sendKeys("iphone"+ Keys.ENTER);
-
+    @When("user write in the search box anything")
+    public void user_write_in_the_search_box_anything() {
+        pages.searchBox.sendKeys("Iphone" + Keys.ENTER);
     }
 
     @Then("user is on the target page what written in the search box")
-    public void userIsOnTheTargetPageWhatWrittenInTheSearchBox() {
-        Assert.assertEquals(Driver.getDriver().getTitle(), "Amazon.com : iphone");
-    }
+    public void user_is_on_the_target_page_what_written_in_the_search_box() {
 
+        Assert.assertEquals(Driver.getDriver().getTitle(), "Amazon.com : iphone");
+
+    }
 
 }

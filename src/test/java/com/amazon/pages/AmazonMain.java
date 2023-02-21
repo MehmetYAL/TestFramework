@@ -1,10 +1,10 @@
 package com.amazon.pages;
 
 import com.amazon.utilities.Driver;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 
 public class AmazonMain {
 
@@ -20,6 +20,7 @@ public class AmazonMain {
     @FindBy(xpath = "(//span[.='English'])[1]")
 
     public WebElement english;
-
+    @FindBy(id = "twotabsearchtextbox")
+    public WebElement searchBox;
 
 }
